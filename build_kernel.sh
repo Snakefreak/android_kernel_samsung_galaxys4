@@ -54,7 +54,7 @@ KRNRLS="DreamKernel-GTI9505-v1.0.0"
 # Target Settings
 #
 export ARCH=arm
-export CROSS_COMPILE=/home/talustus/arm-galaxys2-androideabi/bin/galaxys2-
+export CROSS_COMPILE=/home/snakefreak/arm-galaxys2-androideabi/bin/galaxys2-
 export USE_SEC_FIPS_MODE=true
 
 if [ "${1}" != "" ];
@@ -128,17 +128,17 @@ echo -e "${TXTYLW}CleanUP done, starting modules Build ...${TXTCLR}"
 nice -n 10 make -j8 modules 2>&1 | grcat conf.gcc
 
 #
-if [ "$?" == "0" ];
-then
-  echo -e "${TXTYLW}Modules Build done ...${TXTCLR}"
-  sleep 2
-else
-  echo -e "${BLDRED}Modules Build failed, exiting  ...${TXTCLR}"
-    # finished? get elapsed time
-    time_end=$(date +%s.%N)
-    echo -e "${BLDYLW}Total time elapsed: ${TCTCLR}${TXTGRN}$(echo "($time_end - $time_start) / 60"|bc ) ${TXTYLW}minutes${TXTGRN} ($(echo "$time_end - $time_start"|bc ) ${TXTYLW}seconds) ${TXTCLR}"
-  exit 1
-fi
+# if [ "$?" == "0" ];
+# then
+#   echo -e "${TXTYLW}Modules Build done ...${TXTCLR}"
+#   sleep 2
+# else
+#   echo -e "${BLDRED}Modules Build failed, exiting  ...${TXTCLR}"
+#     # finished? get elapsed time
+#     time_end=$(date +%s.%N)
+#     echo -e "${BLDYLW}Total time elapsed: ${TCTCLR}${TXTGRN}$(echo "($time_end - $time_start) / 60"|bc ) ${TXTYLW}minutes${TXTGRN} ($(echo "$time_end - $time_start"|bc ) ${TXTYLW}seconds) ${TXTCLR}"
+#   exit 1
+# fi
 
 echo -e "${TXTGRN}Build: Stage 1 successfully completed${TXTCLR}"
 
